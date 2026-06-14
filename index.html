@@ -9,7 +9,77 @@
 </head>
 <body> 
     <h1>Expense Tracker</h1>
-    <!-- //Users enter the expense information here. Description of product -->
+    <!-- Users enter the expense information here. Description of product -->
     <form id="expense-form">
+      <!--Description box with text-->
         <label for="description">Description</label>
+        <input type="text" id="description"> 
+      <!-- Amount box with text No negative values and decimal amounts allowed  -->
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" min="0" step="0.01">
+
+        <!-- Category Label -->
+        <label for="category">Category</label>
+        <!-- Options for the category dropdown menu  -->
+        <select id="category">
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+        </select>
         
+
+        <!--Date label and input for expense date.Errors can be shown as well-->
+        <label for="date">Date</label>
+        <input type="date" id="date">
+
+        <button type="submit">Add Expense</button>
+        <p id="error-message"></p>
+      </form>
+
+      <section>
+        <!-- Catagories and dropdown menu to select  -->
+        <h2>Controls</h2>
+        <label for="filter-category">Filter by Category</label>
+        <select id="filter-category">
+        <option value="All">All</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
+
+
+      <!-- Dropdown for sorting everything Can sort by date and amounts -->
+      <label for="sort-option">Sort Expenses</label>
+      <select id="sort-option">
+        <option value="date-desc">Date: Newest First</option>
+        <option value="date-asc">Date: Oldest First</option>
+        <option value="amount-desc">Amount: High to Low</option>
+        <option value="amount-asc">Amount: Low to High</option>
+        </select>
+      </section>
+
+
+      <!-- Summary totals. Convert to EUR as stated in pdf -->
+          <section>
+            <h2>Summary</h2>
+            <p>Overall Total: <span id="overall-total">$0.00</span></p>
+            <button id="convert-btn">Convert to EUR</button>
+            <p id="converted-total"></p>
+            <p id="convert-error"></p>
+            <p>Expenses Shown: <span id="expense-count">0</span></p>
+            <div id="category-totals"></div>
+          </section>
+
+
+      <!-- Expense list appears here -->
+          <section>
+            <h2>Expenses</h2>
+            <div id="expense-list"></div>
+          </section>
+
+          <script src="script.js"></script>
+      </body>
+      </html>
+            
